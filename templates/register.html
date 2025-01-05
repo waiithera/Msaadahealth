@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Healthcare Chatbot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2d2d2d;
+            --hover-bg: #3a3a3a;
+            --border-color: #404040;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-color: #4CAF50;  /* Changed to a medical green */
+            --error-color: #ff4444;
+            --success-color: #44ff44;
+            --medical-blue: #2196F3;
+            --medical-light-blue: #03A9F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: linear-gradient(45deg, #1a1a1a 25%, #202020 25%, #202020 50%, #1a1a1a 50%, #1a1a1a 75%, #202020 75%, #202020 100%);
+            background-size: 56.57px 56.57px;
+            color: var(--text-primary);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            background-color: var(--secondary-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), var(--medical-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .logo-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.75rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        .password-requirements {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--medical-blue));
+            color: var(--text-primary);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover::after {
+            left: 100%;
+        }
+
+        .alt-action {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .alt-action a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-left: 0.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .alt-action a:hover {
+            color: var(--medical-blue);
+        }
+
+        .language-selector {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .language-selector select {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector select:focus {
+            border-color: var(--accent-color);
+        }
+
+        .error-message, .success-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .error-message {
+            background-color: rgba(255, 68, 68, 0.1);
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+        }
+
+        .success-message {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <h1>Healthcare Assistant Registration</h1>
+        </div>
+
+        <div class="error-message" id="error-message"></div>
+        <div class="success-message" id="success-message"></div>
+
+        <form id="register-form" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password_hash" required>
+                <div class="password-requirements">
+                    Password must be at least 8 characters long and include letters, numbers, and special characters.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Create Account
+            </button>
+        </form>
+
+        <div class="alt-action">
+            Already have an account? <a href="/login">Login</a>
+        </div>
+
+        <div class="language-selector">
+            <select id="language-selector">
+                <option value="en">English</option>
+                <option value="sw">Swahili</option>
+                <option value="sheng">Sheng</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+    const form = document.getElementById('register-form');
+    const errorMessage = document.getElementById('error-message');
+    const successMessage = document.getElementById('success-message');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('.submit-btn');
+        submitBtn.disabled = true;
+
+        try {
+            const formData = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirm_password: document.getElementById('confirm-password').value
+            };
+
+            // Check if passwords match
+            if (formData.password !== formData.confirm_password) {
+                errorMessage.textContent = "Passwords do not match!";
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            const response = await fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await response.json();
+
+            if (data.status === 'success') {
+                successMessage.textContent = data.message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+                
+                // Redirect to login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 2000);
+            } else {
+                errorMessage.textContent = data.message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+        } catch (error) {
+            errorMessage.textContent = 'An error occurred. Please try again.';
+            errorMessage.style.display = 'block';
+        } finally {
+            submitBtn.disabled = false;
+        }
+    });
+    </script>
+</body>
+</html>

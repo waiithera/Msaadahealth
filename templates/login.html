@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Healthcare Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #1a1a1a;
+            --secondary-bg: #2d2d2d;
+            --hover-bg: #3a3a3a;
+            --border-color: #404040;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-color: #4CAF50;  /* Medical green */
+            --medical-blue: #2196F3;
+            --medical-light-blue: #03A9F4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            background-image: linear-gradient(45deg, #1a1a1a 25%, #202020 25%, #202020 50%, #1a1a1a 50%, #1a1a1a 75%, #202020 75%, #202020 100%);
+            background-size: 56.57px 56.57px;
+            color: var(--text-primary);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background-color: var(--secondary-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), var(--medical-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .logo-icon i {
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1.75rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-primary);
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--medical-blue));
+            color: var(--text-primary);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .submit-btn:hover::after {
+            left: 100%;
+        }
+
+        .alt-action {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .alt-action a {
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-left: 0.5rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .alt-action a:hover {
+            color: var(--medical-blue);
+        }
+
+        .language-selector {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .language-selector select {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-selector select:focus {
+            border-color: var(--accent-color);
+        }
+
+        .error-message {
+            background-color: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-heartbeat"></i>
+            </div>
+            <h1>Healthcare Assistant Login</h1>
+        </div>
+
+        <div class="error-message" id="error-message"></div>
+
+        <form id="login-form" method ="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="Enter your username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <button type="submit" class="submit-btn">
+                Login
+            </button>
+        </form>
+
+        <div class="alt-action">
+            Need a healthcare account? <a href="{{ url_for('register') }}">Register Now</a>
+        </div>
+
+        <div class="language-selector">
+            <select id="language-selector">
+                <option value="en">English</option>
+                <option value="sw">Swahili</option>
+                <option value="sheng">Sheng</option>
+            </select>
+        </div>
+    </div>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+        const languageSelector = document.getElementById('language-selector');
+
+        // Language translations
+        const translations = {
+            en: {
+                title: 'Healthcare Assistant Login',
+                username: 'Username',
+                password: 'Password',
+                loginButton: 'Sign In',
+                noAccount: 'Need a healthcare account?',
+                register: 'Register Now',
+                placeholder_username: 'Enter your username',
+                placeholder_password: 'Enter your password'
+            },
+            sw: {
+                title: 'Ingia - Msaidizi wa Afya',
+                username: 'Jina la mtumiaji',
+                password: 'Nywila',
+                loginButton: 'Ingia',
+                noAccount: 'Unahitaji akaunti ya afya?',
+                register: 'Jisajili Sasa',
+                placeholder_username: 'Ingiza jina lako la mtumiaji',
+                placeholder_password: 'Ingiza nywila yako'
+            },
+            sheng: {
+                title: 'Login - Health Assistant',
+                username: 'Username yako',
+                password: 'Password',
+                loginButton: 'Ingia',
+                noAccount: 'Unahitaji account ya health?',
+                register: 'Join Sasa',
+                placeholder_username: 'Weka username yako',
+                placeholder_password: 'Weka password yako'
+            }
+        };
+
+        // Update UI language
+        function updateLanguage(lang) {
+            const text = translations[lang];
+            document.querySelector('h1').textContent = text.title;
+            document.querySelector('label[for="username"]').textContent = text.username;
+            document.querySelector('label[for="password"]').textContent = text.password;
+            document.querySelector('.submit-btn').textContent = text.loginButton;
+            document.querySelector('#username').placeholder = text.placeholder_username;
+            document.querySelector('#password').placeholder = text.placeholder_password;
+            document.querySelector('.alt-action').innerHTML = 
+                `${text.noAccount} <a href="/register">${text.register}</a>`;
+        }
+
+        languageSelector.addEventListener('change', (e) => {
+            updateLanguage(e.target.value);
+        });
+
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = loginForm.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: document.getElementById('username').value,
+                        password: document.getElementById('password').value
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.status === 'success') {
+                    window.location.href = data.redirect || '/';
+                } else {
+                    errorMessage.textContent = data.message || 'Login failed. Please try again.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessage.textContent = 'An error occurred. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
