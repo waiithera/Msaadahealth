@@ -1,0 +1,132 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns_en": [
+        "Hi",
+        "Hey",
+        "Good morning",
+        "Good evening",
+        "Good afternoon",
+        "Hello",
+        "Hi there",
+        "Hello there",
+        "Good day",
+        "How are you?",
+        "How have you been?",
+        "Are you good?",
+        "Are you okay?",
+        "How are you feeling?"
+      ],
+      "patterns_sw": [
+        "Habari?",
+        "Habari yako?",
+        "Habari za leo?",
+        "U hali gani?",
+        "Shikamoo",
+        "Marahaba",
+        "Habari za asubuhi?",
+        "Habari za mchana?",
+        "Habari za jioni?",
+        "Habari ya kazi?",
+        "Salama?",
+        "Hujambo?",
+        "Sijambo",
+        "Vipi leo?"
+      ],
+      "patterns_sheng": [
+        "Sasa",
+        "Niaje",
+        "Vipi",
+        "Mambo",
+        "Oshee"
+      ],
+      "responses_en": [
+        "Hi! Thanks for visiting! I'm Doc, your virtual medical assistant! How can I help you today?",
+        "Hi there! I'm here to help! What can I do for you?",
+        "Hello there! I'll be your virtual medical assistant today. How can I help?"
+      ],
+      "responses_sw": [
+        "Habari! Karibu kupata usaidizi. Ninaweza kukusaidia vipi leo?",
+        "Jambo! Niko hapa kukusaidia! Nikufanyie nini?",
+        "Karibu! Nitakuwa msaidizi wako wa afya leo. Nikuhudumie vipi?"
+      ],
+      "responses_sheng": [
+        "Sasa! Karibu sana! Nikuhelp aje leo?",
+        "Niaje! Niko rada kukusaidia! Nikufanyie nini?",
+        "Poa! Niko available kukuhelp leo. Nikuassist aje?"
+      ]
+    },
+    {
+      "tag": "diabetes_info",
+      "patterns_en": [
+        "What is diabetes?",
+        "Tell me about diabetes",
+        "What are the types of diabetes?",
+        "How do you get diabetes?",
+        "What causes diabetes?",
+        "Define diabetes",
+        "Explain diabetes to me"
+      ],
+      "patterns_sw": [
+        "Ugonjwa wa kisukari ni nini?",
+        "Nielezee kuhusu kisukari",
+        "Aina za kisukari ni zipi?",
+        "Kisukari kinatoka wapi?",
+        "Nini husababisha kisukari?"
+      ],
+      "patterns_sheng": [
+        "Diabetes ni nini?",
+        "Niambie kuhusu diabetes",
+        "Iko aje na hii maneno ya sugar?",
+        "Niforkishie hii diabetes story"
+      ],
+      "responses_en": [
+        "Diabetes is a condition where the body has trouble controlling blood sugar levels. There are two main types: Type 1 where the body can't produce insulin, and Type 2 where the body becomes resistant to insulin. It requires careful management through diet, exercise, and sometimes medication."
+      ],
+      "responses_sw": [
+        "Kisukari ni hali ambapo mwili hauwezi kudhibiti viwango vya sukari kwenye damu ipasavyo. Kuna aina mbili kuu: Aina ya 1 ambapo mwili hauzalishi insulini, na Aina ya 2 ambapo mwili hauitumii insulini vizuri. Inahitaji usimamizi mzuri kupitia lishe, mazoezi, na wakati mwingine dawa."
+      ],
+      "responses_sheng": [
+        "Diabetes ni condition ya mwili kushindwa ku-control sugar levels kwa damu. Kuna types mbili major: Type 1 mwili haiproduce insulin, na Type 2 mwili haitumii insulin poa. Unahitaji ku-manage vizuri na food mzuri, maexercise, na sometimes madawa."
+      ]
+    },
+    {
+      "tag": "diet_management",
+      "patterns_en": [
+        "What should I eat?",
+        "What is a good diet for diabetes?",
+        "What foods are good for diabetes?",
+        "Give me diet tips",
+        "What foods should I avoid?",
+        "Can I eat sweets?"
+      ],
+      "patterns_sw": [
+        "Nifaa kula nini?",
+        "Lishe gani ni nzuri kwa kisukari?",
+        "Vyakula gani ni vizuri kwa kisukari?",
+        "Nipe ushauri wa lishe",
+        "Vyakula gani niepuke?",
+        "Naweza kula vitamu?"
+      ],
+      "patterns_sheng": [
+        "Nikule nini?",
+        "Diet gani ni poa kwa diabetes?",
+        "Food gani ni proper kwa diabetes?",
+        "Nipe food tips",
+        "Niepuke kukula nini?",
+        "Naweza kula sweets?"
+      ],
+      "responses_en": [
+        "Focus on a balanced diet with: 1) Whole grains and complex carbohydrates 2) Lean proteins 3) Plenty of vegetables 4) Limited sweets and processed foods 5) Regular meal times 6) Portion control. Work with your healthcare provider to create a personalized meal plan."
+      ],
+      "responses_sw": [
+        "Zingatia lishe yenye uwiano na: 1) Nafaka kamili na kabohidreti nzito 2) Protini nyepesi 3) Mboga nyingi 4) Vitamu na vyakula vilivyosindikwa kwa kiasi 5) Muda wa mlo wa kawaida 6) Kudhibiti kiasi. Fanya kazi na mtoa huduma wako wa afya kuunda mpango wa mlo binafsi."
+      ],
+      "responses_sheng": [
+        "Focus na balanced diet na: 1) Whole grains na complex carbs 2) Proteins bila mafuta mingi 3) Mboga mob 4) Sweets na processed food kidogo 5) Regular eating times 6) Control portions zako. Work na daktari wako kupanga meal plan yako."
+      ]
+    }
+  ]
+}
+   
